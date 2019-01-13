@@ -1,25 +1,23 @@
-import React, { Component } from "react";
+import React from "react";
 import { Button } from "../Button"
 
-export class Todo extends Component {
-  render() {
-    return (
-      <React.Fragment>
-        <input 
-          type='checkbox'
-          name={this.props.todo.text}
-          checked={this.props.todo.resolved}
-          onChange={this.props.todo.resolved ? 
-            () => this.props.markInComplete(this.props.todo.index) 
-            : 
-            () => this.props.markComplete(this.props.todo.index)}
-        />
-        {this.props.todo.resolved? 
-          <strike>{this.props.todo.text}</strike>
-          :
-          <span>{this.props.todo.text}</span>}
-        <Button text='Delete' onClick={this.props.onClick}/>
-      </React.Fragment>  
-    );
-  }
-}
+const Todo = props => (
+  <React.Fragment>
+    <input 
+      type='checkbox'
+      name={props.todo.text}
+      checked={props.todo.resolved}
+      onChange={props.todo.resolved ? 
+        () => props.markInComplete(props.todo.index) 
+        : 
+        () => props.markComplete(props.todo.index)}
+    />
+    {props.todo.resolved? 
+      <strike>{props.todo.text}</strike>
+      :
+      <span>{props.todo.text}</span>}
+    <Button text='Delete' onClick={props.onClick}/>
+  </React.Fragment>  
+) 
+
+export { Todo }

@@ -1,14 +1,12 @@
-import React, { Component } from "react";
+import React from "react";
+import { ButtonStyle } from "./styles";
 
-export class Button extends Component {
-  render() {
-    return (
-      <button 
-        type="button"
-        onClick = {this.props.onClick}>
-        {this.props.text}
-      </button>
-    );
-  }
-}
+const Button = props => (
+  <ButtonStyle 
+    type="button"
+    onClick = {props.onClick}>
+    {props.text}
+  </ButtonStyle>
+)
 
+export { Button }

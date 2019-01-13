@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Add } from "../Add";
 import { Todos } from "../Todos";
 import { Input } from "../Input"
+import { MainContainer, SectionHeader, Container } from "./styles" ;
 
 export class ToDoContainer extends Component {
   state = {
@@ -57,21 +58,28 @@ export class ToDoContainer extends Component {
 
 
   render() {
-    console.log('text: ' + this.state.search_text)
-    console.log('results: ' + this.search())
     return (
-      <React.Fragment>
-        <Add onClick={this.addTodo} />
-        <Todos todos={this.search()} 
-          removeTodo={this.removeTodo} 
-          markComplete={this.markComplete}
-          markInComplete={this.markInComplete} />
-        <Input 
-          name="search"
-          value={this.state.search_text}
-          updateText={this.updateSearch}
-        />
-      </React.Fragment>
+        <MainContainer>
+          <Container>
+            <Add onClick={this.addTodo} />
+          </Container>
+          <Container>
+            <SectionHeader>Current Todos</SectionHeader>
+            <Todos search_results={this.search()}
+              todos={this.state.todos} 
+              removeTodo={this.removeTodo} 
+              markComplete={this.markComplete}
+              markInComplete={this.markInComplete} />
+          </Container>
+          <Container>
+            <SectionHeader>Search ToDos</SectionHeader>
+            <Input 
+              name="search"
+              value={this.state.search_text}
+              updateText={this.updateSearch}
+            />
+          </Container>
+        </MainContainer>
     );
   }
 }

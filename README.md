@@ -74,7 +74,7 @@ Please view the demo video uploaded at [designs/Todo_Demo.m4v](designs/Todo_Demo
 specifications:
 
 - When there are no todos in the list, the text 'No Todos to complete' should render under 'Current Todos', and the search bar should not appear
-- As soon as a todo has been added, it will appear as an unordered list element under 'Current Todos' along with the search bar. Next to the todo should be a button which deletes the todo from the list.
+- As soon as a todo has been added, it will appear as an unordered list element under 'Current Todos' along with the search bar. Next to the todo should be a AppButton which deletes the todo from the list.
 - The search bar updates the filtering whenever its text is changed - if a todo does not contain the text as a substring than it is taken away
 - If there are todos in existence and the search bar does not match any of them, the text 'No results found' should be rendered under 'Current Todos'
 
@@ -117,7 +117,7 @@ Then, push your branch to the remote repository by running
 git push origin <YOUR_NAME>
 ```
 
-Then, navigate to the remote repository, where you should see a button telling you that you have pushed a new branch. Click on that button, which takes you the pull request page.
+Then, navigate to the remote repository, where you should see a AppButton telling you that you have pushed a new branch. Click on that AppButton, which takes you the pull request page.
 
 You will now be creating your first pull request - in other words, a submission for your code to be reviewed by me before it is merged into the codebase. Add a title to your request and a description of your work - for now, please write a paragraph or two explaining how your website works and any signficant challenges you faced when making it.
 
@@ -178,10 +178,10 @@ N.B: This stage assumes basic knowledge of CSS. If you need a quick review - or 
 
 Styling in React is very much similar to CSS but not quite the same. Let's go over some of the key similarities and differences!
 
-Here at DEV, we use a very nifty library known as `styled-components` to accomplish styling in React. Its philosophy is as follows: instead of making one large CSS stylesheet for the whole site, it is easier to assign styled attributes to each component individually. For example, in this app, we can create a styled `DeleteButton` component from the more general `button` component. Here are examples of the syntax:
+Here at DEV, we use a very nifty library known as `styled-components` to accomplish styling in React. Its philosophy is as follows: instead of making one large CSS stylesheet for the whole site, it is easier to assign styled attributes to each component individually. For example, in this app, we can create a styled `DeleteAppButton` component from the more general `AppButton` component. Here are examples of the syntax:
 
 ```
-const SubmitButton = styled.button`
+const SubmitAppButton = styled.AppButton`
   width: 50%;
   margin-bottom: 10px;
   border-radius: 2px;
@@ -200,14 +200,14 @@ For example, we can write
 
 ```
 <Container>
-   <SubmitButton onClick={this.handleClick}> Click me! </SubmitButton>
+   <SubmitAppButton onClick={this.handleClick}> Click me! </SubmitAppButton>
 </Container>
 ```
 in place of 
 
 ```
 <div>
-   <button onClick={this.handleClick}> Click me! </button>
+   <AppButton onClick={this.handleClick}> Click me! </AppButton>
 </div>
 ```
 
@@ -231,7 +231,7 @@ In React, when you want to employ Flexbox (which should be all the time), you us
 import { Flex } from 'grid-styled'
 import styled from 'styled-components'
 
-const SubmitButton = styled.button`
+const SubmitAppButton = styled.AppButton`
   width: 50%;
   margin-bottom: 10px;
   border-radius: 2px;
@@ -251,11 +251,11 @@ const Text = styled(Flex)`
 
 <Container flexDirection="column" justifyContent="flex-start" alignItems="center">
    <Text>Hi!</Text>
-   <SubmitButton onClick={this.handleClick}> Click me! </SubmitButton>
+   <SubmitAppButton onClick={this.handleClick}> Click me! </SubmitAppButton>
 </Container>
 ```
 
-This example will ensure that the "Hi" text and the "Click me!" button will be stacked vertically, aligned to the top of the page, and aligned in the center of the page's width.
+This example will ensure that the "Hi" text and the "Click me!" AppButton will be stacked vertically, aligned to the top of the page, and aligned in the center of the page's width.
 
 ### Specification
 
@@ -264,7 +264,7 @@ The goal of this stage is to style your basic todo site from stage 1 into the EX
 You're free (and encouraged!) to customize basic details (colors, fonts, etc.) but the core styling details (layout, sizing, hover states, transitions, etc.) should be exactly the same as in the video.
 
 Do note the following: 
--When you hover over the buttons, they change color into their original border color, and the text color changes to white. This change does not happen immediately but rather over a (relatively short) transition period. 
+-When you hover over the AppButtons, they change color into their original border color, and the text color changes to white. This change does not happen immediately but rather over a (relatively short) transition period. 
 -When you type in the input fields, the border of the field changes color and grows slightly. 
 
 ### Setup and Submission
@@ -286,7 +286,7 @@ Next, for each of your `index.js` files for individual components, create a `sty
 import { Flex } from 'grid-styled'
 import styled from 'styled-components'
 
-export const SubmitButton = styled.button`
+export const SubmitAppButton = styled.AppButton`
   width: 50%;
   margin-bottom: 10px;
   border-radius: 2px;
@@ -308,7 +308,7 @@ export const Text = styled(Flex)`
 Then, you can add the following line to your `index.js` file to import the styled components for use!
 
 ```
-import { SubmitButton, Container, Text } from './styles'
+import { SubmitAppButton, Container, Text } from './styles'
 ```
 
 Style your code, commit, push to the same branch, and create a new pull request for me to review your code!
